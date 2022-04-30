@@ -1,0 +1,33 @@
+{% extends "./base.html"%}
+
+{% block title %}Gestion de materias {% endblock %}
+
+{%block body %}
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+       
+        <h2>Edicion de materias</h2>
+        <div class="card">
+            <div class="car-body">
+                <form action="/editarCurso/" method="POST"> {% csrf_token%}
+                    <div class="form-group">
+                      <input type="text" id="txtCodigo" name="txtCodigo" value="{{Curso.codigo}}"  class="form-control" placeholder="codigo"
+                       minlength="6" maxlength="6"   readonly required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="txtNombre" name="txtNombre" value="{{Curso.nombre}}" class="form-control" placeholder="Nombre"
+                          maxlength="25" required>
+                      </div>
+                      <div class="form-group">
+                        <input type="text" id="numNotas" name="numNotas"  value="{{Curso.notas}}"  class="form-control" 
+                         minlength="1" maxlength="6" value="1" required>
+                      </div>
+                      <div class="form-group">
+                        <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
+                      </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}
